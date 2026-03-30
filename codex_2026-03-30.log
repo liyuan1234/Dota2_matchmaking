@@ -1,0 +1,42 @@
+Codex session log
+Date: 2026-03-30
+Workspace root: /Users/liyuan/Desktop/codex-image-agent/Dota2_matchmaking
+
+Summary of work completed in this session
+
+1. Repository setup
+   - Cloned repository into /Users/liyuan/Desktop/codex-image-agent/Dota2_matchmaking
+   - Created branch: feature/balanced-window-matchmaking
+
+2. Alternate matchmaking implementation
+   - File: /Users/liyuan/Desktop/codex-image-agent/Dota2_matchmaking/simplescript.py
+   - Replaced the original single-strategy script with a simulation module that supports:
+     - balanced-window matchmaking
+     - anchor-nearest matchmaking
+   - Added queue-window scoring logic based on MMR spread and waiting time.
+   - Added exact balanced 5v5 team splitting by minimizing team MMR gap.
+   - Added original-style anchor-nearest lobby selection as a selectable algorithm mode.
+   - Added CLI option:
+     - --algorithm balanced-window
+     - --algorithm anchor-nearest
+   - Added per-match algorithm name to printed output.
+
+3. Tests
+   - File: /Users/liyuan/Desktop/codex-image-agent/Dota2_matchmaking/tests/test_matchmaking.py
+   - Added tests for:
+     - best-window selection
+     - balanced team splitting
+     - anchor-nearest lobby selection
+     - sequential team split behavior
+
+4. Documentation
+   - File: /Users/liyuan/Desktop/codex-image-agent/Dota2_matchmaking/readme.md
+   - Documented both matchmaking algorithms and example run commands.
+
+5. Verification performed
+   - Ran: python3 simplescript.py --players 20 --algorithm balanced-window
+   - Ran: python3 simplescript.py --players 20 --algorithm anchor-nearest
+   - Ran: python3 -m unittest discover -s tests
+
+Instruction adopted
+- Maintain a session log in the working repo folder named codex_{date}.log with files changed and concise change summaries.
